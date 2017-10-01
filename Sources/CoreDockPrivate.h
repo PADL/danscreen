@@ -1,13 +1,5 @@
-//
-//  CoreDock.h
-//  danscreen
-//
-//  Created by Luke Howard on 01.10.17.
-//  Copyright © 2017 PADL Software Pty Ltd. All rights reserved.
-//
-
-#ifndef CoreDock_h
-#define CoreDock_h
+#ifndef CoreDockPrivate_h
+#define CoreDockPrivate_h
 
 //
 // CoreDockPrivate.h
@@ -74,4 +66,4 @@ extern void CoreDockSetWorkspacesEnabled(Boolean); // This works, but wipes out 
 extern void CoreDockGetWorkspacesCount(int *rows, int *cols);
 extern void CoreDockSetWorkspacesCount(int rows, int cols);
 
-#endif /* CoreDock_h */
+#endif /* CoreDockPrivate_h */

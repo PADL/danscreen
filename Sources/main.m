@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 
-#import "CoreDock.h"
+#import "CoreDockPrivate.h"
 
 CGDirectDisplayID gDisplays[32];
 uint32_t gNumDisplays = 0;
