@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		D3E0017A1F80ADEC00295652 /* danscreen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = danscreen; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E0017D1F80ADEC00295652 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D3E001841F80BE0A00295652 /* CoreDock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDock.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				D3E0017D1F80ADEC00295652 /* main.m */,
+				D3E001841F80BE0A00295652 /* CoreDock.h */,
 			);
 			path = danscreen;
 			sourceTree = "<group>";
