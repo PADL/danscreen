@@ -42,7 +42,7 @@
 		D3E001711F80ADEC00295652 = {
 			isa = PBXGroup;
 			children = (
-				D3E0017C1F80ADEC00295652 /* danscreen */,
+				D3E0017C1F80ADEC00295652 /* Sources */,
 				D3E0017B1F80ADEC00295652 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,13 +55,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D3E0017C1F80ADEC00295652 /* danscreen */ = {
+		D3E0017C1F80ADEC00295652 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				D3E0017D1F80ADEC00295652 /* main.m */,
 				D3E001841F80BE0A00295652 /* CoreDock.h */,
 			);
-			path = danscreen;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

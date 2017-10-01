@@ -11,34 +11,29 @@
 
 #import "CoreDock.h"
 
-CGDirectDisplayID gDisplays[3];
+CGDirectDisplayID gDisplays[32];
 uint32_t gNumDisplays = 0;
+CoreDockOrientation gDockOrientation = kCoreDockOrientationIgnore;
 
 static CGError
 SwapDockOrientation(void)
 {
-    CoreDockPinning pinning;
-    CoreDockOrientation oldOrientation, newOrientation;
+    static const char *orientations[] = {
+        "ignore",
+        "top",
+        "bottom",
+        "left",
+        "right"
+    };
+
+    if (gDockOrientation < kCoreDockOrientationIgnore ||
+        gDockOrientation > kCoreDockOrientationRight)
+        return kCGErrorIllegalArgument;
     
-    CoreDockGetOrientationAndPinning(&oldOrientation, &pinning);
-    
-    switch (oldOrientation) {
-        case kCoreDockOrientationLeft:
-            newOrientation = kCoreDockOrientationRight;
-            break;
-        case kCoreDockOrientationRight:
-            newOrientation = kCoreDockOrientationLeft;
-            break;
-        default:
-            newOrientation = kCoreDockOrientationIgnore;
-            break;
-    }
-    
-    if (newOrientation != kCoreDockOrientationIgnore) {
-        CoreDockSetOrientationAndPinning(newOrientation, kCoreDockPinningIgnore);
-        printf("Changed dock orientation from %s to %s\n",
-               oldOrientation == kCoreDockOrientationRight ? "right" : "left",
-               newOrientation == kCoreDockOrientationRight ? "right" : "left");
+    if (gDockOrientation != kCoreDockOrientationIgnore) {
+        CoreDockSetOrientationAndPinning(gDockOrientation, kCoreDockPinningIgnore);
+        printf("Changed dock orientation to %s\n",
+               orientations[gDockOrientation]);
     }
     
     return kCGErrorSuccess;
@@ -104,6 +99,11 @@ SwapPrimaryDisplays(void)
         return err;
     }
     
+    if (CGRectGetMinX(secondaryBounds) < 0)
+        gDockOrientation = kCoreDockOrientationLeft;
+    else
+        gDockOrientation = kCoreDockOrientationRight;
+
     err = CGConfigureDisplayOrigin(config, primaryDisplay,
                                    -1 * CGRectGetMinX(secondaryBounds),
                                    -1 * CGRectGetMinY(secondaryBounds));
@@ -113,7 +113,7 @@ SwapPrimaryDisplays(void)
         return err;
     }
 
-    err = CGCompleteDisplayConfiguration(config, kCGConfigureForSession);
+    err = CGCompleteDisplayConfiguration(config, kCGConfigurePermanently);
     if (err != kCGErrorSuccess) {
         fprintf(stderr, "Failed to complete display configuration: %d\n", err);
         return err;
