@@ -10,9 +10,9 @@
 
 #import "CoreDockPrivate.h"
 
-CGDirectDisplayID gDisplays[32];
-uint32_t gNumDisplays = 0;
-CoreDockOrientation gDockOrientation = kCoreDockOrientationIgnore;
+static CGDirectDisplayID gDisplays[32];
+static uint32_t gNumDisplays = 0;
+static CoreDockOrientation gDockOrientation = kCoreDockOrientationIgnore;
 
 static CGError
 SwapDockOrientation(void)
