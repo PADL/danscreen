@@ -1,12 +1,11 @@
 //
-//  main.m
+//  main.cpp
 //  danscreen
 //
 //  Created by Luke Howard on 01.10.17.
 //  Copyright © 2017 PADL Software Pty Ltd. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 
 #import "CoreDockPrivate.h"
@@ -78,8 +77,8 @@ SwapPrimaryDisplays(void)
 {
     CGError err;
     CGDisplayConfigRef config = NULL;
-    CGDirectDisplayID primaryDisplay = CGMainDisplayID();
-    CGDirectDisplayID secondaryDisplay = GetSecondaryDisplayID();
+    auto primaryDisplay = CGMainDisplayID();
+    auto secondaryDisplay = GetSecondaryDisplayID();
     
     printf("Primary display ID: %x\n", primaryDisplay);
     printf("Secondary display ID: %x\n", secondaryDisplay);
@@ -90,7 +89,7 @@ SwapPrimaryDisplays(void)
         return err;
     }
     
-    CGRect secondaryBounds = CGDisplayBounds(secondaryDisplay);
+    auto secondaryBounds = CGDisplayBounds(secondaryDisplay);
 
     err = CGConfigureDisplayOrigin(config, secondaryDisplay, 0, 0);
     if (err != kCGErrorSuccess) {
@@ -124,17 +123,17 @@ SwapPrimaryDisplays(void)
     return kCGErrorSuccess;
 }
 
-int main(int argc, const char * argv[]) {
+int main(int argc, const char * argv[])
+{
     CGError err;
-    
-    @autoreleasepool {
-        err = EnumerateDisplays();
-        if (err == kCGErrorSuccess) {
-          err = SwapPrimaryDisplays();
-        }
-        if (err == kCGErrorSuccess) {
-            err = SwapDockOrientation();
-        }
+
+    err = EnumerateDisplays();
+    if (err == kCGErrorSuccess) {
+      err = SwapPrimaryDisplays();
     }
+    if (err == kCGErrorSuccess) {
+        err = SwapDockOrientation();
+    }
+
     return err;
 }

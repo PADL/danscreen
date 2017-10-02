@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D3E0017E1F80ADEC00295652 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D3E0017D1F80ADEC00295652 /* main.m */; };
+		D37889341F81E8DB00295652 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37889331F81E8DB00295652 /* CoreGraphics.framework */; };
+		D37889361F81E9F200295652 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37889351F81E9F100295652 /* AppKit.framework */; };
+		D3E0017E1F80ADEC00295652 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D3E0017D1F80ADEC00295652 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +25,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D37889331F81E8DB00295652 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D37889351F81E9F100295652 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		D3E0017A1F80ADEC00295652 /* danscreen */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = danscreen; sourceTree = BUILT_PRODUCTS_DIR; };
-		D3E0017D1F80ADEC00295652 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D3E0017D1F80ADEC00295652 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		D3E001841F80BE0A00295652 /* CoreDockPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDockPrivate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -33,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D37889361F81E9F200295652 /* AppKit.framework in Frameworks */,
+				D37889341F81E8DB00295652 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D37889321F81E8DB00295652 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D37889351F81E9F100295652 /* AppKit.framework */,
+				D37889331F81E8DB00295652 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D3E001711F80ADEC00295652 = {
 			isa = PBXGroup;
 			children = (
 				D3E0017C1F80ADEC00295652 /* Sources */,
 				D3E0017B1F80ADEC00295652 /* Products */,
+				D37889321F81E8DB00295652 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,7 +74,7 @@
 		D3E0017C1F80ADEC00295652 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				D3E0017D1F80ADEC00295652 /* main.m */,
+				D3E0017D1F80ADEC00295652 /* main.cpp */,
 				D3E001841F80BE0A00295652 /* CoreDockPrivate.h */,
 			);
 			path = Sources;
@@ -121,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3E0017E1F80ADEC00295652 /* main.m in Sources */,
+				D3E0017E1F80ADEC00295652 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

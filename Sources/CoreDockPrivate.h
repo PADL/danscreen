@@ -1,6 +1,10 @@
 #ifndef CoreDockPrivate_h
 #define CoreDockPrivate_h
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+    
 //
 // CoreDockPrivate.h
 // Header file for undocumented Dock SPI
@@ -65,5 +69,9 @@ extern void CoreDockSetWorkspacesEnabled(Boolean); // This works, but wipes out 
 
 extern void CoreDockGetWorkspacesCount(int *rows, int *cols);
 extern void CoreDockSetWorkspacesCount(int rows, int cols);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* CoreDockPrivate_h */
